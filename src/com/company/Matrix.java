@@ -12,13 +12,13 @@ toArray(int[][] matrix) - превращает матрицу в массив. �
 max(int[][] matrix) - возвращает максимальный элемент матрицы
 */
 public class Matrix {
+
     public static void print(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             System.out.println(Arrays.toString(matrix[i]));
         }
     }
 
-    // Column swap numeration starts from 1
     public static void swapColumns(int[][] matrix, int col1, int col2) {
         for (int i = 0; i < matrix.length; i++) {
             if (matrix[i].length < Math.max(col1, col2) || Math.min(col1, col2) <= 0) {

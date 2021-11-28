@@ -30,12 +30,22 @@ public class PersonGenerator {
             "Jenna", "Mary", "Erin", "Madeline", "Sierra", "Grace", "Audrey", "Rebecca", "Evelyn", "Camilla"
     };
     private static final String[] SURNAMES = {
-            "Thompson"
+            "Alberty", "Alexander", "Allard", "Allen", "Anderson", "Bailiff", "Bell", "Bennett", "Biffle", "Brooks",
+            "Brown", "Butler", "Castillo", "Chia", "Christensen", "Coleman", "Cook", "Courtland", "Davis", "Diaz",
+            "Dimick", "Dollar", "Easterlin", "Edwards", "Eubank", "Evans", "Fawn", "Felch", "Flores", "Foster",
+            "Gagneux", "Garcia", "Gaylord", "Goleman", "Gomez", "Governor", "Gray", "Green", "Griffin", "Harkleroad",
+            "Harris", "Hayes", "Hensley", "Hill", "Holt", "Hughes", "Imler", "Irving", "Jackson", "James",
+            "Jimenez", "Johnson", "Jones", "Kelly", "Kim", "Kindermann", "King", "Lakin", "Lee", "Lepley",
+            "Lewis", "Malich", "Martin", "Morales", "Murphy", "Myer", "Nelson", "Nguyen", "Ortiz", "Patterson",
+            "Perez", "Perry", "Pershing", "Phillips", "Price", "Ramirez", "Ramos", "Reyes", "Richardson", "Ridlehoover",
+            "Rivera", "Robinson", "Rogers", "Sanchez", "Sanders", "Sauerbrey", "Settlemire", "Simmons", "Smith",
+            "Taylor", "Thomas", "Thompson", "Torres", "Turner", "Van", "Every", "Walker", "Ward", "Washington",
+            "Wattson", "White"
     };
 
-    private List<Person> personList = new ArrayList<>();
+    private final List<Person> personList = new ArrayList<>();
 
-    public void generatePersons(int count) {
+    public PersonGenerator(int count) {
         Random random = new Random();
         for (int i = 0; i < count; i++) {
             Person person = new Person(
@@ -43,6 +53,17 @@ public class PersonGenerator {
                     SURNAMES[random.nextInt(SURNAMES.length)]
             );
             personList.add(person);
+        }
+    }
+
+    public void print() {
+        for (Person p : personList) {
+            System.out.printf("%-24s - %2d years old [%3dkg, %3dcm]\n",
+                    p.getFirstName() + " " + p.getLastName(),
+                    p.getAge(),
+                    p.getWeight(),
+                    p.getHeight()
+            );
         }
     }
 }

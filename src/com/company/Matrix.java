@@ -24,13 +24,11 @@ public class Matrix {
             if (matrix[i].length < Math.max(col1, col2) || Math.min(col1, col2) <= 0) {
                 return;
             }
-
             for (int j = 0; j < matrix[i].length; j++) {
                 if (matrix[i][j] == matrix[i][col1 - 1]) {
                     int tmp = matrix[i][col2 - 1];
                     matrix[i][col2 - 1] = matrix[i][j];
                     matrix[i][j] = tmp;
-
                     break;
                 }
             }
@@ -41,7 +39,6 @@ public class Matrix {
         if (matrix.length < Math.max(row1, row2) || Math.min(row1, row2) <= 0) {
             return;
         }
-
         for (int i = 0; i < matrix.length; i++) {
             if (i == row1 - 1) {
                 for (int j = 0; j < matrix[i].length; j++) {
@@ -49,7 +46,6 @@ public class Matrix {
                     matrix[i] = matrix[row2 - 1];
                     matrix[row2 - 1] = tmp;
                 }
-
                 break;
             }
         }

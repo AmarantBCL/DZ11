@@ -16,8 +16,8 @@ public class Main {
     }
 
     private static void Task1() {
-        PersonGenerator pGenerator = new PersonGenerator();
-        pGenerator.generatePersons(100);
+        PersonGenerator pGenerator = new PersonGenerator(100);
+        pGenerator.print();
     }
 
     private static void Task2() {

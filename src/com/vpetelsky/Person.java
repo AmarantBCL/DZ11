@@ -40,15 +40,31 @@ public class Person {
         return lastName;
     }
 
-    private void setAge() {
-        age = RANDOM.nextInt(MAX_AGE) + 1;
-    }
-
     public int getAge() {
         return age;
     }
 
-    private void setWeight() {
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        calculateAge();
+        calculateWeight();
+        calculateHeight();
+    }
+
+    private void calculateAge() {
+        age = RANDOM.nextInt(MAX_AGE) + 1;
+    }
+
+    private void calculateWeight() {
         double coeff = 0.0;
         if (age < 18) {
             coeff = MIN_WEIGHT_COEFF + (MAX_WEIGHT_COEFF - MIN_WEIGHT_COEFF) * RANDOM.nextDouble();
@@ -60,11 +76,7 @@ public class Person {
         weight = BASE_WEIGHT + (int)Math.round(age * coeff);
     }
 
-    public int getWeight() {
-        return weight;
-    }
-
-    private void setHeight() {
+    private void calculateHeight() {
         double coeff = 0.0;
         if (age < 20) {
             coeff = MIN_HEIGHT_COEFF + (MAX_HEIGHT_COEFF - MIN_HEIGHT_COEFF) * RANDOM.nextDouble();
@@ -74,17 +86,5 @@ public class Person {
         }
 
         height = BASE_HEIGHT + (int)Math.round(age * coeff);
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        setAge();
-        setWeight();
-        setHeight();
     }
 }
